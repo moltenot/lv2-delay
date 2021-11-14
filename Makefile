@@ -1,8 +1,9 @@
 BUNDLE_NAME=delay.lv2
 UTILS_DIR=dsp-utils
+INSTALLDIR=~/.lv2/
 FUNC_OB=$(UTILS_DIR)/functions.o
 
-.PHONY: clean
+.PHONY: clean reinstall
 
 $(FUNC_OB):
 	$(MAKE) -C $(UTILS_DIR)
@@ -18,3 +19,15 @@ bundle:	delay.so
 clean:
 	rm -f delay.so 
 	rm -rf $(BUNDLE_NAME)
+
+install: bundle
+	mv $(BUNDLE_NAME) $(INSTALLDIR)
+
+uninstall:
+	rm -rf $(INSTALLDIR)/$(BUNDLE_NAME)
+
+reinstall: uninstall install
+
+
+test:
+	jalv https://github.com/moltenot/lv2-delay

@@ -25,4 +25,4 @@
         lv2:index 2;
         lv2:symbol "out";
         lv2:name "Output"
-    ]
+    ] .
