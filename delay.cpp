@@ -1,10 +1,10 @@
 #include "dsp-utils/functions.hpp"
 #include <lv2plugin.hpp>
 #include <iostream>
+#include <constants.hpp>
 
-#define DELAY_PORT_INDEX 0
-#define INPUT_PORT_INDEX 1
-#define OUTPUT_PORT_INDEX 2
+
+static const float max_delay_seconds = 2.0;
 
 class delay : public LV2::Plugin<delay>
 {
