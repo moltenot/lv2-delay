@@ -1,5 +1,5 @@
 #include <cstdlib>
-#include <circular_buffer.hpp>
+#include "circular_buffer.hpp"
 #include <iostream>
 
 // constructor
@@ -13,10 +13,7 @@ circular_buffer::circular_buffer()
 }
 
 // destructor
-circular_buffer::~circular_buffer()
-{
-    delete[] m_buffer;
-}
+circular_buffer::~circular_buffer() {}
 
 std::size_t circular_buffer::size() const
 {
