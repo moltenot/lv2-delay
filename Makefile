@@ -31,3 +31,6 @@ reinstall: uninstall install
 
 test:
 	jalv https://github.com/moltenot/lv2-delay
+
+test_buf:
+	g++ 
