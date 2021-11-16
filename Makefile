@@ -32,5 +32,8 @@ reinstall: uninstall install
 test:
 	jalv https://github.com/moltenot/lv2-delay
 
-test_buf:
-	g++ 
+circ_buf.o:
+	g++ -o circ_buf.o -c circular_buffer.cpp -Wall
+
+test_buf: circ_buf.o
+	g++ -o test_buf test_buf.cpp circ_buf.o -Wall
