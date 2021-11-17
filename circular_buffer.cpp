@@ -20,10 +20,13 @@ std::size_t circular_buffer::size() const
     return BUFFER_SIZE;
 }
 
-void dump(circular_buffer *cb)
+// dump the whole of the circular buffer to cout
+void circular_buffer::dump()
 {
+    circular_buffer *cb = this;
     for (size_t i = 0; i < cb->size(); i++)
     {
-        std::cout << cb->m_buffer[i] << std::endl;
+        std::cout << cb->m_buffer[i] << "\t";
     }
+    std::cout << std::endl;
 }

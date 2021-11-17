@@ -19,6 +19,8 @@ bundle:	delay.so
 clean:
 	rm -f delay.so 
 	rm -rf $(BUNDLE_NAME)
+	rm circ_buf.o
+	rm test_buf
 
 install: bundle
 	mv $(BUNDLE_NAME) $(INSTALLDIR)
@@ -28,12 +30,9 @@ uninstall:
 
 reinstall: uninstall install
 
-
 test:
 	jalv https://github.com/moltenot/lv2-delay
 
-circ_buf.o:
-	g++ -o circ_buf.o -c circular_buffer.cpp -Wall
-
-test_buf: circ_buf.o
-	g++ -o test_buf test_buf.cpp circ_buf.o -Wall
+test_buf:
+	g++ -o test_buf test_buf.cpp circular_buffer.cpp -Wall 
+	./test_buf
