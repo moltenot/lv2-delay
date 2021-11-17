@@ -21,11 +21,17 @@ int main(void) {
     cb.dump();
 
     std::cout << "cb.pop() = " << cb.pop() << std::endl;
+    cb.dump();
     std::cout << "cb.pop() = " << cb.pop() << std::endl;
+    cb.dump();
     std::cout << "cb.pop() = " << cb.pop() << std::endl;
+    cb.dump();
     std::cout << "cb.pop() = " << cb.pop() << std::endl;
+    cb.dump();
     std::cout << "cb.pop() = " << cb.pop() << std::endl;
+    cb.dump();
     std::cout << "cb.pop() = " << cb.pop() << std::endl;
+    cb.dump();
     
     
 }
