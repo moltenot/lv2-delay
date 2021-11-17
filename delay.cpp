@@ -15,8 +15,8 @@ private:
     circular_buffer cb;
 
 public:
-    delay(double sample_rate) : LV2::Plugin<delay>(3)
-    { // since there are 3 ports
+    delay(double sample_rate) : LV2::Plugin<delay>(4)
+    { // since there are 4 ports
         this->sample_rate = sample_rate;
         this->cb = circular_buffer(); // consulte the constants file for how long this is
         std::cout << "\nsample rate is: " << sample_rate << std::endl;
@@ -29,6 +29,7 @@ public:
         {
             float echo;
             float &delay = *p(DELAY_PORT_INDEX); // the delay we want in seconds
+            float &wet = *p(WET_PORT_INDEX); 
             
             // set the echo to 0 if we need to wait longer, or pop off the circular
             // buffer if we are ready to go
@@ -38,12 +39,12 @@ public:
             } else {
                 echo = 0.0;
             }
-            std::cout << "echo = " << echo << std::endl;
+            // std::cout << "echo = " << echo << std::endl;
 
             // append the input to the circular buffer
             this->cb.put(p(INPUT_PORT_INDEX)[i]); 
 
-            p(OUTPUT_PORT_INDEX)[i] = p(INPUT_PORT_INDEX)[i] + 0.5*echo;
+            p(OUTPUT_PORT_INDEX)[i] = p(INPUT_PORT_INDEX)[i] + wet*echo;
         }
     }
 };

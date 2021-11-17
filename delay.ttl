@@ -25,4 +25,12 @@
         lv2:index 2;
         lv2:symbol "out";
         lv2:name "Output"
+    ] , [
+        a lv2:InputPort, lv2:ControlPort;
+        lv2:index 3;
+        lv2:symbol "wet";
+        lv2:name "Dry/Wet";
+        lv2:default 0.5;
+        lv2:minimum 0.0;
+        lv2:maximum 1.0
     ] .
