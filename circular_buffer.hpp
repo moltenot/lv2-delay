@@ -9,15 +9,16 @@ class circular_buffer
  */
 {
 private:
+    int head;
+    int tail;
+    float m_buffer[BUFFER_SIZE];
+
 public:
     circular_buffer(); // size is fixed in constants.hpp
     ~circular_buffer();
 
     std::size_t size() const; // get the size of the buffer
     void put(float value);    // put a value into the buffer
-    float get();              // get a value from the buffer
     float pop();              // get a value from the buffer and remove it
     void dump();              // print the buffer to the console
-
-    float m_buffer[BUFFER_SIZE];
 };

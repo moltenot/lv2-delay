@@ -30,3 +30,18 @@ void circular_buffer::dump()
     }
     std::cout << std::endl;
 }
+
+// put the value in the buffer
+void circular_buffer::put(float value)
+{
+    m_buffer[this->head] = value;
+    this->head = (this->head + 1) % BUFFER_SIZE;
+}
+
+// retrieves the tail value and moves the tail pointer
+float circular_buffer::pop()
+{
+    float value = m_buffer[this->tail];
+    this->tail = (this->tail + 1) % BUFFER_SIZE;
+    return value;
+}
