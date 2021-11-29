@@ -3,9 +3,13 @@ FROM debian:stable
 RUN apt update  && \
     apt install -y \
         build-essential \
-        vim
+        vim \
+        libfftw3-dev \
+        lv2-c++-tools \
+        pkg-config
 
 
 RUN mkdir code
 
-CMD ["./bin/bash"]
+WORKDIR /code/
+CMD [ "/usr/bin/make", "bundle" ]
